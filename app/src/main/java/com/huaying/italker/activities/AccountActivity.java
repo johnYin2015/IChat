@@ -3,8 +3,8 @@ package com.huaying.italker.activities;
 import android.content.Context;
 import android.content.Intent;
 
-import com.huaying.common.app.Activity;
-import com.huaying.common.app.Fragment;
+import com.huaying.italker.common.app.Activity;
+import com.huaying.italker.common.app.Fragment;
 import com.huaying.italker.R;
 import com.huaying.italker.frags.account.UpdateInfoFragment;
 

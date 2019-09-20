@@ -1,6 +1,6 @@
 package com.huaying.italker;
 
-import com.huaying.common.app.Application;
+import com.huaying.italker.common.app.Application;
 
 /**
  * @authoer johnyin2015

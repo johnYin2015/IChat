@@ -40,6 +40,8 @@ ext{
     //依赖库版本
     supportVersion = '1.1.0';
     butterknifeVersion = '10.1.0';
+
+
     recylerVersion = '1.0.0';
     designVersion = '1.0.0-rc01';
     geniusVersion = '2.0.0'
@@ -48,8 +50,8 @@ ext{
     ucropVersion = '2.2.4-native'
 
 
-    //easyPMVersion = "0.3.0"
-    //ossVersion = '2.9.1'
+    easyPMVersion = "0.3.0"
+    ossVersion = '2.9.1'
     //getuiVersion = '2.13.0.0'
     //airpanelVersion = "1.4.0"
 

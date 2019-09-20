@@ -1,7 +1,7 @@
 package com.huaying.italker.frags.main;
 
 
-import com.huaying.common.app.Fragment;
+import com.huaying.italker.common.app.Fragment;
 import com.huaying.italker.R;
 
 /**

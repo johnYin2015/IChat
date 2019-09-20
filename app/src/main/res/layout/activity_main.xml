@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <!--在xml布局中，可以通过android:outlineProvider来指定轮廓的判定方式：
 
@@ -31,7 +31,7 @@
             android:paddingLeft="@dimen/len_4"
             android:paddingRight="@dimen/len_4">
 
-            <com.huaying.common.widget.PortraitView
+            <com.huaying.italker.common.widget.PortraitView
                 android:id="@+id/pv_portrait"
                 android:padding="@dimen/len_4"
                 android:layout_width="@dimen/len_40"

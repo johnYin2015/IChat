@@ -4,14 +4,16 @@ package com.huaying.italker.frags.account;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.util.Log;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.huaying.common.app.Application;
-import com.huaying.common.app.Fragment;
-import com.huaying.common.widget.PortraitView;
+import com.huaying.italker.common.app.Application;
+import com.huaying.italker.common.app.Fragment;
+import com.huaying.italker.common.widget.PortraitView;
 import com.huaying.italker.R;
+import com.huaying.italker.factory.Factory;
 import com.huaying.italker.frags.media.GalleryFragment;
+import com.huaying.italker.net.UploadHelper;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
@@ -85,5 +87,16 @@ public class UpdateInfoFragment extends Fragment {
                 .load(uri)
                 .centerCrop()
                 .into(mPortrait);
+
+        final String localPath = uri.getPath();
+        Log.e("TAG","localPath:"+localPath);
+
+        Factory.runAsync(new Runnable() {
+            @Override
+            public void run() {
+                String url = UploadHelper.uploadPortrait(localPath);
+                Log.e("TAG","url:"+url);
+            }
+        });
     }
 }

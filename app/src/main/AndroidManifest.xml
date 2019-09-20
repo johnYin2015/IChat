@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.huaying.italker">
-
+    <!-- 网络相关的权限 -->
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -12,30 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Main">
         <activity
-            android:name=".activities.AccountActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Account" />
-
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".activities.AccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Account" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
     </application>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 写存储权限 oss -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 这一新的 XML 元素定义了一些属性，这些属性可确定如何打包模块并作为 APK 分发。 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--这一新的 XML 元素定义了一些属性，这些属性可确定如何打包模块并作为 APK 分发。-->
     <dist:module dist:instant="true" />
 
 </manifest>

@@ -12,11 +12,9 @@ import android.view.Window;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.huaying.common.tools.UiTool;
-import com.huaying.common.widget.GalleryView;
+import com.huaying.italker.common.tools.UiTool;
+import com.huaying.italker.common.widget.GalleryView;
 import com.huaying.italker.R;
-
-import net.qiujuer.genius.ui.Ui;
 
 import androidx.annotation.NonNull;
 
@@ -70,7 +68,7 @@ public class GalleryFragment extends BottomSheetDialogFragment implements Galler
         void onSelectedImage(String path);
     }
 
-    private static class TransStatusBottomSheetDialog extends BottomSheetDialog{
+    public static class TransStatusBottomSheetDialog extends BottomSheetDialog{
 
         public TransStatusBottomSheetDialog(@NonNull Context context) {
             super(context);
