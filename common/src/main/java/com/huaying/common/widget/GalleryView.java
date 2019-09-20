@@ -186,7 +186,6 @@ public class GalleryView extends RecyclerView {
             Log.e("GalleryView", "onCreateLoader id = " + id);
             //loader创建时
             if (id == LOADER_ID) {
-                Log.e("GalleryView", "onCreateLoader enter if");
                 return new CursorLoader(getContext(),
                         MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                         IMAGE_PROJECTION,
@@ -309,8 +308,6 @@ public class GalleryView extends RecyclerView {
         @Override
         protected void onBind(Image image) {
             //mPic.isHardwareAccelerated()
-
-            Log.e(TAG, "ViewHolder onBind");
 
             Glide.with(getContext())
                     .load(image.path) //加载路径

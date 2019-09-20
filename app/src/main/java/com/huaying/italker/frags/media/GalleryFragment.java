@@ -12,6 +12,7 @@ import android.view.Window;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.huaying.common.tools.UiTool;
 import com.huaying.common.widget.GalleryView;
 import com.huaying.italker.R;
 
@@ -90,9 +91,9 @@ public class GalleryFragment extends BottomSheetDialogFragment implements Galler
             final Window window = getWindow();
             if (window==null)
                 return;
-            int screenHeight = getContext().getResources().getDisplayMetrics().heightPixels;
+            int screenHeight = UiTool.getScreenHeight(getOwnerActivity());
             //状态栏高度
-            int statusHeight = (int) Ui.dipToPx(getContext().getResources(), 25);
+            int statusHeight = UiTool.getStatusBarHeight(getOwnerActivity());
 
             int dialogHeight = screenHeight - statusHeight;
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,dialogHeight<=0?ViewGroup.LayoutParams.MATCH_PARENT:dialogHeight);

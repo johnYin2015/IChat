@@ -1,9 +1,11 @@
 package com.huaying.italker;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,9 +15,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.huaying.common.app.Activity;
 import com.huaying.common.widget.PortraitView;
@@ -86,12 +87,12 @@ public class MainActivity extends Activity
 
         mNavigation.setOnNavigationItemSelectedListener(this);
 
+        //noinspection deprecation
         Glide.with(this)
                 .load(R.drawable.bg_src_morning)
-                .into(new ViewTarget<View, GlideDrawable>(mLayAppbar) {
+                .into(new ViewTarget<View, Drawable>(mLayAppbar) {
                     @Override
-                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-                        //this:viewtarget
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
                         this.view.setBackground(resource.getCurrent());
                     }
                 });

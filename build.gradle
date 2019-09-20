@@ -43,9 +43,10 @@ ext{
     recylerVersion = '1.0.0';
     designVersion = '1.0.0-rc01';
     geniusVersion = '2.0.0'
-    glideVersion = '3.7.0'
+    glideVersion = '4.9.0'
     circleimageviewVersion = '2.1.0'
     ucropVersion = '2.2.4-native'
+
 
     //easyPMVersion = "0.3.0"
     //ossVersion = '2.9.1'
