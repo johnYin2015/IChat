@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--为应用的相关资源提供唯一的资源id-->
+<resources>
+    <!--recycler封装的tag-->
+    <item name="tag_recycler_holder" type="id" />
+    <!--默认头像drawable name-->
+    <item name="default_portrait" type="drawable" />
+</resources>

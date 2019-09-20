@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--在xml布局中，可以通过android:outlineProvider来指定轮廓的判定方式：
+
+    none 即使设置了Z属性，也不会显示阴影
+    background 会按照背景来设置阴影形状
+    bounds 会按照View的大小来描绘阴影
+    paddedBounds 和bounds类似，不过阴影会稍微向右偏移一点-->
+    <!--tools:targetApi="lollipop" 忽略掉其上2属性 4.4以下-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:elevation="@dimen/len_2"
+        android:outlineProvider="bounds"
+        tools:targetApi="lollipop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+        <!--framelayout占内存极少-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/statusBarSize"
+            android:paddingLeft="@dimen/len_4"
+            android:paddingRight="@dimen/len_4">
+
+            <com.huaying.common.widget.PortraitView
+                android:id="@+id/pv_portrait"
+                android:padding="@dimen/len_4"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:layout_margin="@dimen/len_4"
+                android:foreground="@drawable/ic_touch_menu"
+                android:clickable="true"
+                android:src="@drawable/default_portrait"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                style="@style/TextAppearance.Title"
+                android:text="@string/app_name"/>
+
+            <ImageView
+                android:scaleType="centerInside"
+                android:id="@+id/iv_search"
+                android:tint="?attr/toolbarMenuIconColor"
+                android:padding="@dimen/len_10"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_search"
+                android:foreground="@drawable/ic_touch_menu"
+                android:layout_gravity="end|center_vertical"/>
+        </FrameLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_52"
+        android:layout_gravity="bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/grey_200"
+        app:menu="@menu/navigation_items"
+        app:itemIconTint="@color/text_nav"
+        app:itemTextColor="@color/text_nav"
+        android:elevation="@dimen/len_4"
+        android:outlineProvider="bounds"
+        tools:targetApi="lollipop"
+        android:translationZ="@dimen/len_8"
+        tools:visibility="invisible"/>
+
+    <!--所谓RTL，就是指按平常习惯在左的视图都会在右侧，在右侧的视图都会在左侧。
+    例如，在线性布局中第1个子视图默认都是在左上角的，如果采用RTL布局，默认就在右上角了。
+    RTL布局默认是关闭的，如果想使用RTL布局，
+    首先要在AndroidManifest.xml文件中将<application>标签的android:supportsRtl属性值设为"true"，
+    然后需要将相应视图标签的android:layoutDirection属性值设为"rtl"。-->
+    <net.qiujuer.genius.ui.widget.FloatActionButton
+        android:id="@+id/fab_action"
+        android:tint="@color/white"
+        android:padding="@dimen/len_20"
+        app:gBackgroundColor="@color/colorAccent"
+        android:src="@drawable/ic_group_add"
+        android:layout_width="@dimen/len_52"
+        android:layout_height="@dimen/len_52"
+        app:layout_anchor="@id/fl_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/fl_container"
+        app:layout_anchorGravity="bottom|end"
+        android:layout_marginEnd="@dimen/len_16"
+        android:layout_marginBottom="@dimen/len_16"
+        android:translationY="@dimen/len_76"
+        android:clickable="true"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
